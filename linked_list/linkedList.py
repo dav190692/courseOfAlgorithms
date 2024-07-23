@@ -135,7 +135,7 @@ class LinkedList:
         
         for _ in range(self.length):
             if fast.next is None or fast.next.next is None:
-                return low.value
+                return low
             fast = fast.next.next
             low = low.next
 
@@ -238,6 +238,6 @@ my_linked_list.print_list()
 
 
 
-
         
+
 
