@@ -2,7 +2,11 @@ import my_node
 
 
 class LinkedList:
-    def __init__(self, value) -> None:
+    def __init__(self, value = None) -> None:
+        if value is None:
+            self.head = None
+            self.tail = None
+            self.length = 0
         new_node = my_node.Node(value)
         self.head = new_node
         self.tail = new_node
@@ -194,37 +198,52 @@ class LinkedList:
     
         self.head = dummy1.next
 
+    def merge_sorted(self, other):
+        new_list = LinkedList(None)
+        temp1 = self.head
+        temp2 = other.head
+        if other.length == 0:
+            return self
+        if self.length == 0:
+            return other
+        
+        while temp1 and temp2:
+            if temp1.value <= temp2.value:
+                new_list.append_node(temp1.value)
+                temp1 = temp1.next
+            else:
+                new_list.append_node(temp2.value)
+                temp2 = temp2.next
+        while temp1:
+            new_list.append_node(temp1.value)
+            temp1 = temp1.next
+        while temp2:
+            new_list.append_node(temp2.value)
+            temp2 = temp2.next
+        return new_list.print_list()
+
+
 
         
     
 
-my_linked_list = LinkedList(1)
-my_linked_list.append_node(2)
-my_linked_list.append_node(14)
-my_linked_list.append_node(45)
-my_linked_list.append_node(53)
-my_linked_list.append_node(6)
-my_linked_list.append_node(73)
-my_linked_list.append_node(8)
-my_linked_list.append_node(13)
-my_linked_list.append_node(119)
-my_linked_list.append_node(19)
-my_linked_list.append_node(16)
+my_linked_list1 = LinkedList(1)
+my_linked_list1.append_node(5)
+my_linked_list1.append_node(5)
+
 
 # my_linked_list.tail.next = my_linked_list.head
 
 
-my_linked_list.print_list()
+my_linked_list1.print_list()
 print('\n')
 print('\n')
 
-my_linked_list.partition_list(14)
 
-
-print('\n')
-print('\n')
-
-my_linked_list.print_list()
+my_linked_list2 = LinkedList(2)
+my_linked_list2.append_node(79)
+my_linked_list2.append_node(89)
+my_linked_list1.merge(my_linked_list2)
 
 
 # print(my_linked_list.find_middle_node())
