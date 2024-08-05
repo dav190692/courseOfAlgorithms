@@ -50,8 +50,9 @@ class BinarySearchTree:
 
     def r_insert(self, value):
         if self.root is None:
-            self.root == bstConstructor.Node(value)
-        self.__r_insert(self.root, value)
+            self.root = bstConstructor.Node(value)
+        else:
+            self.__r_insert(self.root, value)
 
 
 
@@ -256,6 +257,21 @@ class BinarySearchTree:
                     temp.append(node.rigth)
 
         return heigth
+    
+
+
+
+
+def isSameTree(p, q):
+    if not p and not q:
+        return True
+    if not p or not q:
+        return False
+    if p.value != q.value:
+        return False
+    return isSameTree(p.rigth, q.rigth) and isSameTree(p.left, q.left)
+
+        
 
         
 
@@ -281,13 +297,23 @@ class BinarySearchTree:
 
 
 my_tree = BinarySearchTree()
-my_tree.insert(47)            
-my_tree.insert(21)                
-my_tree.insert(76)          
-my_tree.r_insert(18)         
-my_tree.r_insert(27)          
-my_tree.r_insert(52)
-my_tree.r_insert(82)
+my_tree.insert(2)            
+my_tree.insert(1)                
+my_tree.insert(3)          
+# my_tree.r_insert(18)         
+# my_tree.r_insert(27)          
+# my_tree.r_insert(52)
+# my_tree.r_insert(82)
+
+
+my_tree_2 = BinarySearchTree()
+my_tree_2.r_insert(2)
+my_tree_2.r_insert(1)
+
+my_tree_2.r_insert(4)
+
+
+print(isSameTree(my_tree.root, my_tree_2.root))
 
 
 
@@ -302,14 +328,14 @@ my_tree.r_insert(82)
 # print(my_tree.getRootData())
 
 
-print(my_tree.bfs())
-print(my_tree.r_preOrder())
-print(my_tree.pre_order())
-print(my_tree.r_post_order())
-print(my_tree.post_order())
-print(my_tree.r_in_order())
-print(my_tree.in_order())
-print(my_tree.tree_heigth())
+# print(my_tree.bfs())
+# print(my_tree.r_preOrder())
+# print(my_tree.pre_order())
+# print(my_tree.r_post_order())
+# print(my_tree.post_order())
+# print(my_tree.r_in_order())
+# print(my_tree.in_order())
+# print(my_tree.tree_heigth())
 
 
 
