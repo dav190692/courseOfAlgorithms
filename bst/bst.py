@@ -212,7 +212,7 @@ class BinarySearchTree:
             if not curent_node:
                 return
             if curent_node.left:
-                traverse(curent_node.left)
+                traverse(curent_node.left)           
             result.append(curent_node.value)
             if curent_node.rigth:
                 traverse(curent_node.rigth)
@@ -260,8 +260,6 @@ class BinarySearchTree:
     
 
 
-
-
 def isSameTree(p, q):
     if not p and not q:
         return True
@@ -270,6 +268,7 @@ def isSameTree(p, q):
     if p.value != q.value:
         return False
     return isSameTree(p.rigth, q.rigth) and isSameTree(p.left, q.left)
+
 
         
 
@@ -316,7 +315,7 @@ my_tree_2.r_insert(4)
 print(isSameTree(my_tree.root, my_tree_2.root))
 
 
-
+print(my_tree.bfs())
 
 
 # my_tree.r_delete_node(199)
