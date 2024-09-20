@@ -195,6 +195,7 @@ class RBTree:
                         sibling = current_node.parent.rigth
                     sibling.color = current_node.parent.color
                     current_node.parent.color = Color.black
+                    sibling.rigth.color = Color.black #!!!!!!!!!!!!!!!
                     self.left_rotate(current_node.parent)
                     x = self.root
             else:
@@ -389,15 +390,16 @@ myTree.insert(60)
 
 
 
+print(myTree.bfs())
 
 
 myTree.delete(43)
 
 
 print(myTree.bfs())
-print(myTree.r_preOrder())
-print(myTree.r_post_order())
-print(myTree.r_in_order())
+# print(myTree.r_preOrder())
+# print(myTree.r_post_order())
+# print(myTree.r_in_order())
 
 
 
